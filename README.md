@@ -20,7 +20,7 @@ Term: Fall 2017
 
 	Chen, Tiantian: XGBoost model, main.ipynb construction, github organization
 	Guo, Yajie: SVM model (linear and non linear)
-	Ni, Jiayu: Random forest model
+	Ni, Jiayu: Random forest model, k-fold cross validation
 	Tao, Siyi: feature extraction, main.ipynb construction, github organization
 	Zhao, Yufei: GBM model
 
