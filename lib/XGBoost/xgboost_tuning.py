@@ -21,17 +21,17 @@ y = label_train.drop("image", axis=1)
 # ------------------
 # --- Split Data ---
 # ------------------
-from sklearn.model_selection import train_test_split
+#from sklearn.model_selection import train_test_split
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=1234)
+#X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=1234)
 
 # ---------------------
 # --- Model Tuning ---
 # ---------------------
 from bayes_opt import BayesianOptimization
 
-xg_train = xgb.DMatrix(X_train, label=y_train)  
-xg_test = xgb.DMatrix(X_test, label=y_test)
+xg = xgb.DMatrix(X, label=y)  
+
 
 def xgb_evaluate(min_child_weight,
                  colsample_bytree,
@@ -50,7 +50,7 @@ def xgb_evaluate(min_child_weight,
     params['verbose_eval'] = True    
 
 
-    cv_result = xgb.cv(params, xg_train,
+    cv_result = xgb.cv(params, xg,
                        num_boost_round=100000,
                        nfold=5,
                        metrics={'merror'},

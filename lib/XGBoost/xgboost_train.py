@@ -23,9 +23,9 @@ print("Loaded Data.")
 # ------------------
 # --- Split Data ---
 # ------------------
-from sklearn.model_selection import train_test_split
+#from sklearn.model_selection import train_test_split
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=1234)
+#X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=1234)
 
 # -----------------------------------
 # --- Train Model: Baseline Model ---
@@ -42,7 +42,7 @@ model_baseline = xgb.XGBClassifier(learning_rate = 0.1
                         , gamma = 0
                         , seed = 1234
                         , nthread = -1)
-model_baseline.fit(X_train, y_train)
+model_baseline.fit(X, y)
 
 
 # ---------------------------
@@ -70,7 +70,7 @@ model_tuned = xgb.XGBClassifier(learning_rate = 0.1
                         , nthread = -1
                        )
 
-model_tuned.fit(X_train, y_train)
+model_tuned.fit(X, y)
 print ("Training finished in %d seconds." % (time.time()-start))
 
 # save the baseline model
